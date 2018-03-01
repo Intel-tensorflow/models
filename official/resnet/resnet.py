@@ -133,7 +133,7 @@ def synthetic_input_fn(height, width, num_channels, num_classes):
   """
   def input_fn(is_training, data_dir, batch_size, *args):
     images = tf.zeros((batch_size, height, width, num_channels), tf.float32)
-    labels = tf.zeros((batch_size, 1, num_classes), tf.int32)
+    labels = tf.zeros((batch_size, num_classes), tf.int32)
     return tf.data.Dataset.from_tensor_slices((images, labels))
 
   return input_fn
