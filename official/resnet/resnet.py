@@ -132,9 +132,10 @@ def synthetic_input_fn(height, width, num_channels, num_classes):
     that can be used for iteration.
   """
   def input_fn(is_training, data_dir, batch_size, *args):
-    images = tf.zeros((batch_size, height, width, num_channels), tf.float32)
-    labels = tf.zeros((batch_size, num_classes), tf.int32)
-    return tf.data.Dataset.from_tensor_slices((images, labels))
+    images = tf.zeros((1, height, width, num_channels), tf.float32)
+    labels = tf.zeros((1, num_classes), tf.int32)
+    dataset = tf.data.Dataset.from_tensor_slices((images, labels))
+    return dataset.repeat().batch(batch_size)
 
   return input_fn
 
