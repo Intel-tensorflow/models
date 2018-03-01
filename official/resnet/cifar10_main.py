@@ -203,7 +203,7 @@ def main(unused_argv):
   input_function = input_fn
   if FLAGS.use_synthetic_data:
     input_function = resnet.synthetic_input_fn(
-        FLAGS.batch_size, _HEIGHT, _WIDTH, _NUM_CHANNELS, _NUM_CLASSES)
+        _HEIGHT, _WIDTH, _NUM_CHANNELS, _NUM_CLASSES)
 
   resnet.resnet_main(FLAGS, imagenet_model_fn, input_function)
 

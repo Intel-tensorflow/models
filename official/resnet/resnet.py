@@ -113,7 +113,7 @@ def process_record_dataset(dataset, is_training, batch_size, shuffle_buffer,
   return dataset
 
 
-def synthetic_input_fn(batch_size, height, width, num_channels, num_classes):
+def synthetic_input_fn(height, width, num_channels, num_classes):
   """Returns an input function that returns a dataset with fake data.
 
   This is useful in debugging input pipeline performance, as it removes all
@@ -121,7 +121,6 @@ def synthetic_input_fn(batch_size, height, width, num_channels, num_classes):
   cannot be used for actual learning or convergence.
 
   Args:
-    batch_size: The number of samples per batch.
     height: Integer height that will be used to create a fake image tensor.
     width: Integer width that will be used to create a fake image tensor.
     num_channels: Integer depth that will be used to create a fake image tensor.
